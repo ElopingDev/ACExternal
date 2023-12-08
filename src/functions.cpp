@@ -34,3 +34,7 @@ void PrintInstructions(const std::vector<BYTE>& instructions) {
 
     std::cout << std::dec << std::endl;
 }
+
+void RestoreMemory(HANDLE hProcess, LPVOID targetAddress, size_t size, std::vector<BYTE>& instructions) {
+    WriteProcessMemory(hProcess, targetAddress, instructions.data(), size, nullptr);
+}
